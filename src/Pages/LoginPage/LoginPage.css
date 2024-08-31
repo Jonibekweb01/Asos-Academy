@@ -19,4 +19,8 @@
         width: 190px !important;
         margin-top: 50px !important;
     }
+
+    .login__socialMedia {
+        margin-top: 170px !important;
+    }
 }

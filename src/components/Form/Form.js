@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext, useRef } from "react";
 import styled from "styled-components";
 import { AuthContext } from "../../context/AuthContext";
-
+import "./Form.css";
 export const Form = () => {
   const nameRef = useRef();
   const passwordRef = useRef();
@@ -47,7 +47,9 @@ export const Form = () => {
           ref={passwordRef}
         />
         <FormLink href="/">Forgot password?</FormLink>
-        <FormButton type="submit">Login</FormButton>
+        <FormButton className="loginBtn" type="submit">
+          Login
+        </FormButton>
       </Formik>
     </>
   );
