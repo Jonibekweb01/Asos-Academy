@@ -1,0 +1,17 @@
+@media only screen and (max-width:482px) {
+    .login {
+        padding: 0 !important;
+    }
+
+    .login__left {
+        display: none;
+    }
+
+    .login__box {
+        box-shadow: none !important;
+    }
+
+    .login__right {
+        height: 100vh;
+    }
+}
