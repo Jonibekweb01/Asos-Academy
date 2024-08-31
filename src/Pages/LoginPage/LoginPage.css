@@ -17,5 +17,6 @@
 
     .login__titleBox {
         width: 190px !important;
+        margin-top: 50px !important;
     }
 }
