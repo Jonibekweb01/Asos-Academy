@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Logo from "../../assets/images/ASOS-AKADEMIYASI-LOGO-2.png";
+import Logo from "../../assets/images/oq-fon-uchun.png";
 import Instagram from "../../assets/images/square-instagram-brands-solid.svg";
 import Telegram from "../../assets/images/telegram-brands-solid.svg";
 import FaceBook from "../../assets/images/facebook-brands-solid.svg";
@@ -74,6 +74,7 @@ const LoginBox = styled.div`
   width: 100%;
   padding: 50px 0;
   background-color: #fff;
+  
 `;
 const LoginNextBox = styled.div`
   display: flex;
@@ -83,7 +84,7 @@ const LoginNextBox = styled.div`
   height: 595px;
   margin: auto auto;
   background-color: white;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -93,7 +94,7 @@ const LoginLeftBox = styled.div`
   max-width: 650px;
   width: 100%;
   /* background: #414141; */
-  background: black;
+  /* background: white; */
   border-radius: 10px 0px 0px 10px;
 `;
 const LoginRightBox = styled.div`
