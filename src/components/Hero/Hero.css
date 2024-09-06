@@ -1,0 +1,11 @@
+@media only screen and (max-width:482px) {
+    .hero__inner {
+        padding: 40px 0 420px 0 !important;
+        background-position: bottom !important;
+    }
+
+    .hero__title {
+        font-size: 32px !important;
+        text-align: center;
+    }
+}
