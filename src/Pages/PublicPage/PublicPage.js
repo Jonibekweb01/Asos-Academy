@@ -27,13 +27,13 @@ export const PublicPage = () => {
                 />
               </NavLink>
             </HeaderLogoBox>
-            <BurgerIcon onClick={toggleMenu} className="burger-icon">
+            {/* <BurgerIcon onClick={toggleMenu} className="burger-icon">
               &#9776;
-            </BurgerIcon>
+            </BurgerIcon>*/}
             <HeaderList className={`header__list ${isMenuOpen ? "open" : ""}`}>
-              <CloseButton onClick={toggleMenu} className="close-button">
+              {/* <CloseButton onClick={toggleMenu} className="close-button">
                 &times;
-              </CloseButton>
+              </CloseButton> */}
               <HeaderItem className="header__item">
                 <StyledNavLink to="/" id="about" className={"header__links"}>
                   About
@@ -161,27 +161,27 @@ const LogButton = styled.button`
 
 const LoginImg = styled.img``;
 
-const BurgerIcon = styled.div`
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
+// const BurgerIcon = styled.div`
+//   display: none;
+//   font-size: 24px;
+//   cursor: pointer;
 
-  @media (max-width: 481px) {
-    display: block; /* Show burger icon on small screens */
-  }
-`;
+//   @media (max-width: 481px) {
+//     display: block; /* Show burger icon on small screens */
+//   }
+// `;
 
-const CloseButton = styled.div`
-  position: absolute;
-  top: 0px;
-  right: 20px;
-  font-size: 54px;
-  cursor: pointer;
-  color: #000;
-  background: transparent;
-  border: none;
-  z-index: 1001; /* Ensure it is above the menu */
-  @media (min-width: 482px) {
-    display: none; /* Hide the close button on larger screens */
-  }
-`;
+// const CloseButton = styled.div`
+//   position: absolute;
+//   top: 0px;
+//   right: 20px;
+//   font-size: 54px;
+//   cursor: pointer;
+//   color: #000;
+//   background: transparent;
+//   border: none;
+//   z-index: 1001; /* Ensure it is above the menu */
+//   @media (min-width: 482px) {
+//     display: none; /* Hide the close button on larger screens */
+//   }
+// `;

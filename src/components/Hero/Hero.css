@@ -22,8 +22,5 @@
         justify-content: center;
     }
 
-    .login__hero__image {
-        width: 30px !important;
-        height: 30px !important;
-    }
+
 }
