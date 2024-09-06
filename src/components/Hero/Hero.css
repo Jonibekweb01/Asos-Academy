@@ -1,6 +1,10 @@
 @media only screen and (max-width:482px) {
+    .hero {
+        height: 100vh;
+    }
+
     .hero__inner {
-        padding: 40px 0 420px 0 !important;
+        padding: 80px 0 470px 0 !important;
         background-position: bottom !important;
     }
 
