@@ -1,8 +1,3 @@
-/* PublicPage.css */
-
-/* Base styles for header list */
-
-/* Media query for mobile screens */
 @media only screen and (max-width: 481px) {
     .header__list {
         display: none;

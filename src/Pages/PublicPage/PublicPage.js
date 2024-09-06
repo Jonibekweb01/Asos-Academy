@@ -173,9 +173,9 @@ const BurgerIcon = styled.div`
 
 const CloseButton = styled.div`
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
+  top: 0px;
+  right: 20px;
+  font-size: 54px;
   cursor: pointer;
   color: #000;
   background: transparent;
