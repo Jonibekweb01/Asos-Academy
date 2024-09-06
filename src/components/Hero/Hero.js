@@ -16,7 +16,11 @@ export const Hero = () => {
             <HeroTitle className="hero__title">
               <HeroStrong className="hero__strong">Asos Academy</HeroStrong>{" "}
               <br />
-              Dasturlashni Online biz <br />
+              Dasturlashni{" "}
+              <HeroStrong className="hero__strong">
+                {" "}
+                Online{" "}
+              </HeroStrong> biz <br />
               bilan o'rganing!
             </HeroTitle>
           </HeroTitleBox>
