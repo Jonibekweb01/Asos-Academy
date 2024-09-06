@@ -1,13 +1,14 @@
-import axios from "axios";
-import React, { useContext, useRef } from "react";
-import styled from "styled-components";
+import { useContext, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import "./Form.css";
+import axios from "axios";
+import styled from "styled-components";
+
 export const Form = () => {
   const nameRef = useRef();
   const passwordRef = useRef();
-
-  const { token, setToken } = useContext(AuthContext);
+  const { setToken } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,12 +16,10 @@ export const Form = () => {
     const password = passwordRef.current.value;
 
     axios
-      .post("https://reqres.in/api/login", {
-        email: name,
-        password: password,
-      })
+      .post("https://reqres.in/api/login", { email: name, password: password })
       .then((data) => {
         setToken(data.data);
+        navigate("/");
       })
       .catch((error) => {
         console.error("Error!", error);
@@ -28,30 +27,22 @@ export const Form = () => {
   };
 
   return (
-    <>
-      <Formik onSubmit={handleSubmit}>
-        <FormikInput
-          placeholder="Name"
-          aria-label="Name"
-          type="email"
-          name="name"
-          id="name"
-          ref={nameRef}
-        />
-        <FormikInput
-          placeholder="Password"
-          aria-label="Password"
-          type="password"
-          name="password"
-          id="password"
-          ref={passwordRef}
-        />
-        <FormLink href="/">Forgot password?</FormLink>
-        <FormButton className="loginBtn" type="submit">
-          Login
-        </FormButton>
-      </Formik>
-    </>
+    <Formik onSubmit={handleSubmit}>
+      <FormikInput
+        placeholder="Name"
+        aria-label="Name"
+        type="email"
+        ref={nameRef}
+      />
+      <FormikInput
+        placeholder="Password"
+        aria-label="Password"
+        type="password"
+        ref={passwordRef}
+      />
+      <FormLink href="/">Forgot password?</FormLink>
+      <FormButton type="submit">Login</FormButton>
+    </Formik>
   );
 };
 

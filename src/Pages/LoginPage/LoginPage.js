@@ -74,7 +74,6 @@ const LoginBox = styled.div`
   width: 100%;
   padding: 50px 0;
   background-color: #fff;
-  
 `;
 const LoginNextBox = styled.div`
   display: flex;
