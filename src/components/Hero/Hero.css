@@ -12,4 +12,18 @@
         font-size: 33px !important;
         text-align: center;
     }
+
+    .hero__title__box {
+        margin-bottom: 30px !important;
+    }
+
+
+    .hero__socialMedia {
+        justify-content: center;
+    }
+
+    .login__hero__image {
+        width: 20px !important;
+        height: 20px !important;
+    }
 }
