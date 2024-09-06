@@ -71,7 +71,7 @@ const Header = styled.header`
   top: 0;
   max-width: 100%;
   width: 100%;
-  background-color: #fff;
+  background-color: #fffffff5;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
