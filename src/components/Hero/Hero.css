@@ -1,6 +1,6 @@
 @media only screen and (max-width:482px) {
     .hero {
-        height: 100vh;
+        height: 100vh !important;
     }
 
     .hero__inner {
