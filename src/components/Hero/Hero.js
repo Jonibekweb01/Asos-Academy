@@ -23,6 +23,9 @@ export const Hero = () => {
               </HeroStrong> biz <br />
               bilan o'rganing!
             </HeroTitle>
+            <FreeBtn className="free__btn" type="button" id="">
+              Bepul boshlash
+            </FreeBtn>
           </HeroTitleBox>
           <SocialMedia className="hero__socialMedia">
             <a href="https://telegram.com" className="hero__link">
@@ -61,6 +64,17 @@ export const Hero = () => {
   );
 };
 
+const FreeBtn = styled.button`
+  padding: 15px 20px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  font-weight: bold;
+  margin-top: 20px;
+  background-color: #d0b072;
+  border-radius: 10px;
+`;
+
 const HeroBox = styled.div`
   background-image: url(${Back});
   background-size: 900px;
@@ -82,7 +96,7 @@ const HeroStrong = styled.strong`
 
 const HeroInner = styled.div`
   background-image: url(${BackImg});
-  padding: 130px 0 130px 0;
+  padding: 108px 0 108px 0;
   background-size: 400px;
   background-position: right;
   background-repeat: no-repeat;

@@ -23,7 +23,10 @@
         justify-content: center;
     }
 
-
+    .free__btn {
+        margin: 20px auto !important;
+        display: block;
+    }
 }
 
 .hero_a {
