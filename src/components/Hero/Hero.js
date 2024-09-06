@@ -55,14 +55,16 @@ export const Hero = () => {
           </SocialMedia>
         </HeroInner>
       </div>
+      <div className="hero_b"></div>
+      <div className="hero_a"></div>
     </HeroBox>
   );
 };
 
 const HeroBox = styled.div`
   background-image: url(${Back});
-  background-size: cover;
-  background-position: center;
+  background-size: 900px;
+  background-position: right;
   background-repeat: no-repeat;
   width: 100%;
   height: 630px;

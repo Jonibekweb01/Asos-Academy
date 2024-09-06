@@ -5,6 +5,7 @@ import Logo from "../../assets/images/oq-fon-uchun-min.png";
 import ImgLogin from "../../assets/images/login_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg";
 import "./PublicPage.css";
 import { Hero } from "../../components/Hero/Hero";
+import { Courses } from "../../components/Courses/Courses";
 
 export const PublicPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,7 +61,14 @@ export const PublicPage = () => {
           </HeaderInner>
         </div>
       </Header>
+
+      {/* HERO SECTION  */}
+
       <Hero />
+
+      {/* COURSES SECTION  */}
+
+      <Courses />
     </>
   );
 };
@@ -73,6 +81,7 @@ const Header = styled.header`
   width: 100%;
   background-color: #fffffff5;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 12 !important;
 `;
 
 const HeaderInner = styled.div`
