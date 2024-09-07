@@ -26,6 +26,11 @@ export const Courses = ({ id }) => {
 
 const Course = styled.section`
   z-index: 124 !important;
+  padding: 50px 0 0 0;
+
+  @media (max-width: 480px) {
+    padding: 0;
+  }
 `;
 
 const CourseInner = styled.div`

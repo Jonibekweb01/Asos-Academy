@@ -66,8 +66,8 @@ const FreeBtn = styled.button`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    font-size: 14px;
-    padding: 12px 15px;
+    font-size: 18px;
+    padding: 20px 25px;
   }
 `;
 
