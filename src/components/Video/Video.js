@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import "./VIdeo.css"
+import "./VIdeo.css";
 
 export const Video = () => {
   return (

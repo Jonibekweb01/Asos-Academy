@@ -32,7 +32,7 @@ const CourseInner = styled.div`
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
-  padding: 440px 40px 40px 40px;
+  padding: 40px;
   /* background-color: #f8f8f8; */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
@@ -43,6 +43,9 @@ const CourseInner = styled.div`
   background-position: top right;
   background-repeat: no-repeat;
   border-radius: 10px;
+  @media (max-width: 480px) {
+    padding: 440px 40px 40px 40px;
+  }
 `;
 
 const CourseTitle = styled.h2`

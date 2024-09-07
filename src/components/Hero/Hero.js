@@ -113,11 +113,10 @@ const HeroStrong = styled.strong`
 `;
 
 const HeroInner = styled.div`
-  text-align: center;
   background-image: url(${BackImg});
   padding: 108px 0;
-  background-size: contain;
-  background-position: center;
+  background-size: 440px;
+  background-position: right;
   background-repeat: no-repeat;
 
   @media (max-width: 768px) {
@@ -125,8 +124,9 @@ const HeroInner = styled.div`
   }
 
   @media (max-width: 480px) {
+    text-align: center;
     background-position: bottom;
-    padding:  100px 0 550px 0;
+    padding: 100px 0 550px 0;
     background-size: contain;
   }
 `;
@@ -135,11 +135,6 @@ const HeroTitleBox = styled.div`
   max-width: 892px;
   width: 100%;
   margin-bottom: 70px;
-
-  @media (max-width: 768px) {
-    max-width: 90%;
-    margin-bottom: 50px;
-  }
 
   @media (max-width: 480px) {
     max-width: 95%;
@@ -150,13 +145,13 @@ const HeroTitleBox = styled.div`
 const SocialMedia = styled.div`
   display: flex;
   gap: 10px;
-  justify-content: center;
-
+  
   @media (max-width: 768px) {
     gap: 15px;
   }
-
+  
   @media (max-width: 480px) {
+    justify-content: center;
     gap: 10px;
     display: none !important;
   }
