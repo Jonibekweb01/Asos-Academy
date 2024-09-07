@@ -1,26 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../../assets/images/oq-fon-uchun-min.png";
 import ImgLogin from "../../assets/images/login_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg";
-import "./PublicPage.css";
 import { Hero } from "../../components/Hero/Hero";
+import "./PublicPage.css";
 import { Courses } from "../../components/Courses/Courses";
+import { Video } from "../../components/Video/Video";
 
 export const PublicPage = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   return (
     <>
-      <Header className="header">
+      <Header>
         <div className="container">
-          <HeaderInner className="header__inner">
-            <HeaderLogoBox className="header__logoBox">
-              <NavLink to={"/"} className={"header__linkImg"}>
+          <HeaderInner>
+            <HeaderLogoBox>
+              <NavLink to="/" className="header__linkImg">
                 <HeaderImg
-                  className="header__img"
                   src={Logo}
                   alt="Company Logo"
                   width={100}
@@ -28,30 +24,23 @@ export const PublicPage = () => {
                 />
               </NavLink>
             </HeaderLogoBox>
-            {/* <BurgerIcon onClick={toggleMenu} className="burger-icon">
-              &#9776;
-            </BurgerIcon>*/}
-            <HeaderList className={`header__list ${isMenuOpen ? "open" : ""}`}>
-              {/* <CloseButton onClick={toggleMenu} className="close-button">
-                &times;
-              </CloseButton> */}
-              <HeaderItem className="header__item">
-                <StyledNavLink to="/" id="about" className={"header__links"}>
+            <HeaderList className="header__list">
+              <HeaderItem>
+                <a href="#about" className="header__links">
                   About
-                </StyledNavLink>
+                </a>
               </HeaderItem>
-              <HeaderItem className="header__item">
-                <StyledNavLink to="/" id="contacts" className={"header__links"}>
+              <HeaderItem>
+                <a href="#contacts" className="header__links">
                   Contacts
-                </StyledNavLink>
+                </a>
               </HeaderItem>
             </HeaderList>
-            <LogButton className="login__button">
-              <NavLink to="/login" className={"header__loginLink"}>
+            <LogButton>
+              <NavLink to="/login" className="header__loginLink">
                 Login
               </NavLink>
               <LoginImg
-                className="header__loginimg"
                 src={ImgLogin}
                 alt="Login Icon"
                 width={25}
@@ -62,13 +51,11 @@ export const PublicPage = () => {
         </div>
       </Header>
 
-      {/* HERO SECTION  */}
-
       <Hero />
 
-      {/* COURSES SECTION  */}
+      <Courses id="about" />
 
-      <Courses />
+      <Video />
     </>
   );
 };
@@ -79,16 +66,16 @@ const Header = styled.header`
   top: 0;
   max-width: 100%;
   width: 100%;
-  background-color: #fffffff5;
+  background-color: #fffffff2;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 12 !important;
+  z-index: 12;
 `;
 
 const HeaderInner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 5px 0;
 `;
 
 const HeaderLogoBox = styled.div`
@@ -107,42 +94,17 @@ const HeaderList = styled.ul`
   margin: 0;
   padding: 0;
   transition: transform 0.3s ease-in-out;
-  transform: translateX(100%); /* Hide menu by default on mobile */
+  transform: translateX(0); /* Ensure menu is visible on larger screens */
 
-  &.open {
-    transform: translateX(0); /* Show menu when open */
-  }
-
-  @media (min-width: 482px) {
-    display: flex; /* Show menu normally on larger screens */
-    transform: translateX(0); /* Ensure menu is visible */
+  @media (max-width: 481px) {
+    transform: translateX(100%); /* Hide menu by default on mobile */
+    &.open {
+      transform: translateX(0); /* Show menu when open */
+    }
   }
 `;
 
 const HeaderItem = styled.li``;
-
-const StyledNavLink = styled(NavLink)`
-  color: #000;
-  font-weight: 600;
-  text-decoration: none;
-  position: relative;
-  padding-bottom: 5px;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #000;
-    transition: width 0.3s ease-in-out;
-  }
-
-  &:hover::after {
-    width: 100%;
-  }
-`;
 
 const LogButton = styled.button`
   display: flex;
@@ -159,38 +121,12 @@ const LogButton = styled.button`
   padding: 10px 15px;
   transition: 0.4s ease;
   &:hover {
-    transform: translateY(-3px);
   }
 
   & > a {
     color: white;
-    text-decoration: none; // Ensure no underline
+    text-decoration: none;
   }
 `;
 
 const LoginImg = styled.img``;
-
-// const BurgerIcon = styled.div`
-//   display: none;
-//   font-size: 24px;
-//   cursor: pointer;
-
-//   @media (max-width: 481px) {
-//     display: block; /* Show burger icon on small screens */
-//   }
-// `;
-
-// const CloseButton = styled.div`
-//   position: absolute;
-//   top: 0px;
-//   right: 20px;
-//   font-size: 54px;
-//   cursor: pointer;
-//   color: #000;
-//   background: transparent;
-//   border: none;
-//   z-index: 1001; /* Ensure it is above the menu */
-//   @media (min-width: 482px) {
-//     display: none; /* Hide the close button on larger screens */
-//   }
-// `;
