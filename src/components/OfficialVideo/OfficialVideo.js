@@ -111,6 +111,7 @@ export const OfficialVideo = ({ id }) => {
 
 // Styled Components
 const Section = styled.section`
+  width: 105%;
   padding: 2rem;
   background-color: #f5f5f5;
 `;
