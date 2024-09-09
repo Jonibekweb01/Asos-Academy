@@ -54,4 +54,8 @@ html {
         margin: 0 auto !important;
     }
 
+
+    body {
+        padding: 0;
+    }
 }

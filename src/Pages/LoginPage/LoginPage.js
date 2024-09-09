@@ -72,7 +72,7 @@ const LoginBox = styled.div`
   height: 100%;
   max-width: 100%;
   width: 100%;
-  padding: 50px 0;
+  padding: 0 0 50px 0;
   background-color: #fff;
 `;
 const LoginNextBox = styled.div`
