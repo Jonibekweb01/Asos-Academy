@@ -7,6 +7,7 @@ import { Hero } from "../../components/Hero/Hero";
 import "./PublicPage.css";
 import { Courses } from "../../components/Courses/Courses";
 import { Video } from "../../components/Video/Video";
+import { Footer } from "../../components/Footer/Footer";
 
 export const PublicPage = () => {
   return (
@@ -26,14 +27,14 @@ export const PublicPage = () => {
             </HeaderLogoBox>
             <HeaderList className="header__list">
               <HeaderItem>
-                <a href="#about" className="header__links">
+                <HeaderListLink to="#about" className="header__links">
                   About
-                </a>
+                </HeaderListLink>
               </HeaderItem>
               <HeaderItem>
-                <a href="#contacts" className="header__links">
+                <HeaderListLink to="#contacts" className="header__links">
                   Contacts
-                </a>
+                </HeaderListLink>
               </HeaderItem>
             </HeaderList>
             <LogButton>
@@ -56,6 +57,8 @@ export const PublicPage = () => {
       <Courses id="about" />
 
       <Video />
+
+      <Footer />
     </>
   );
 };
@@ -106,7 +109,36 @@ const HeaderList = styled.ul`
 
 const HeaderItem = styled.li``;
 
+const HeaderListLink = styled(NavLink)`
+  position: relative;
+  color: #333; /* Adjust color as needed */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #d0b072; /* Adjust color as needed */
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+`;
+
 const LogButton = styled.button`
+  position: relative;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -120,8 +152,7 @@ const LogButton = styled.button`
   border-radius: 10px;
   padding: 10px 15px;
   transition: 0.4s ease;
-  &:hover {
-  }
+  overflow: hidden;
 
   & > a {
     color: white;

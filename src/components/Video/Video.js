@@ -47,7 +47,7 @@ const VideoText = styled.p`
   color: #666;
   margin: 0;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 `;
 
 const VideoEmbed = styled.video`
