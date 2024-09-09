@@ -5,8 +5,10 @@ import BackImg from "../../assets/images/pic.png";
 import Telegram from "../../assets/images/telegram-brands-solid.svg";
 import Instagram from "../../assets/images/square-instagram-brands-solid.svg";
 import FaceBook from "../../assets/images/facebook-brands-solid.svg";
+import { AuthContext } from "../../context/AuthContext";
 
 export const Hero = () => {
+  const { token } = React.useContext(AuthContext);
   return (
     <HeroBox>
       <div className="container">
@@ -17,7 +19,7 @@ export const Hero = () => {
               Dasturlashni <HeroStrong>Online</HeroStrong> biz <br />
               bilan o'rganing!
             </HeroTitle>
-            <FreeBtn type="button">Bepul boshlash</FreeBtn>
+            {token ? <></> : <FreeBtn type="button">Bepul boshlash</FreeBtn>}
           </HeroTitleBox>
           <SocialMedia>
             <a href="https://telegram.com">
@@ -139,17 +141,18 @@ const HeroTitleBox = styled.div`
   @media (max-width: 480px) {
     max-width: 95%;
     margin-bottom: 30px;
+    margin: 0 auto;
   }
 `;
 
 const SocialMedia = styled.div`
   display: flex;
   gap: 10px;
-  
+
   @media (max-width: 768px) {
     gap: 15px;
   }
-  
+
   @media (max-width: 480px) {
     justify-content: center;
     gap: 10px;

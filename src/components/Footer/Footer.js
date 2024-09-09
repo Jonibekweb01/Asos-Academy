@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Footer = () => {
+export const Footer = ({ id }) => {
   return (
-    <Footers>
+    <Footers id={id}>
       <div className="container">
         <FooterInner>
           <FooterContent>
@@ -48,9 +48,11 @@ const Footers = styled.footer`
   text-align: center;
   position: relative;
   bottom: 0;
-  width: 550px;
-  margin-top: 50px;
   padding: 40px 0;
+
+  @media (max-width: 481px) {
+    width: 120%;
+  }
 `;
 
 const FooterInner = styled.div`

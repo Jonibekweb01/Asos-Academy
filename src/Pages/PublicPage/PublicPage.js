@@ -58,7 +58,7 @@ export const PublicPage = () => {
 
       <Video />
 
-      <Footer />
+      <Footer id="contacts"/>
     </>
   );
 };
