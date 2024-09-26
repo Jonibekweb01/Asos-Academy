@@ -16,8 +16,8 @@ export const Hero = () => {
           <HeroTitleBox>
             <HeroTitle>
               <HeroStrong>Asos Academy</HeroStrong> <br />
-              Dasturlashni <HeroStrong>Online</HeroStrong> biz <br />
-              bilan o'rganing!
+              Olimpiyadalarga <HeroStrong>Online</HeroStrong> biz <br />
+              bilan tayyorlaning
             </HeroTitle>
             {token ? <></> : <FreeBtn type="button">Bepul boshlash</FreeBtn>}
           </HeroTitleBox>
@@ -173,3 +173,4 @@ const SocialLogos = styled.img`
     height: 20px;
   }
 `;
+

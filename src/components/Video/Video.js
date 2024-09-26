@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import "./VIdeo.css";
+import ProbVideo from "../../assets/videos/prob.mp4";
+import Oblojka from "../../assets/images/oblojka.jpg";
 
 export const Video = () => {
   return (
@@ -11,9 +13,12 @@ export const Video = () => {
           <VideoText className="video-text">
             Ushbu kurslarinzni hozirda mutlaqo bepul o'rganishingiz mumkin.
           </VideoText>
-          {/* Add your video element here, for example: */}
-          <VideoEmbed className="video-embed" controls>
-            <source src="your-video-url.mp4" type="video/mp4" />
+          <VideoEmbed
+            className="video-embed"
+            controls
+            poster={Oblojka} // Set the cover image here
+          >
+            <source src={ProbVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </VideoEmbed>
         </VideoInner>
@@ -24,7 +29,6 @@ export const Video = () => {
 
 // Styled Components
 const VideoSection = styled.section`
-  /* background-color: #fff; */
   text-align: center;
   margin-top: 50px;
 `;
@@ -36,7 +40,7 @@ const VideoInner = styled.div`
 `;
 
 const VideoTitle = styled.h2`
-  font-size: 28px;
+  font-size: 32px;
   color: #333;
   margin: 0;
   margin-bottom: 10px;
@@ -52,11 +56,11 @@ const VideoText = styled.p`
 
 const VideoEmbed = styled.video`
   width: 100%;
-  max-width: 800px;
+  max-width: 710px;
   border-radius: 10px;
   margin: 0 auto;
   display: block;
-  height: 400px;
+  height: 356px;
   border: 1px solid #ddd;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,

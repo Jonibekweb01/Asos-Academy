@@ -1,217 +1,196 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { FaVideo, FaUsers, FaChartLine, FaCog } from "react-icons/fa"; // Importing icons
+import "../Video/VIdeo.css";
+import "./OfficialVideo.css";
+import ProbVideo from "../../assets/videos/prob.mp4"; // Video 1
+import back from "../../assets/images/linear.png";
+import Oblojka2 from "../../assets/images/oblojka2.jpg";
 
-// Dummy data for courses and videos (Replace with real data)
-const courses = [
-  {
-    id: 1,
-    title: "Astronomy",
-    videos: [
-      {
-        id: 1,
-        title: "Exploring the Cosmos",
-        url: "https://www.example.com/video1.mp4",
-        thumbnail: "https://via.placeholder.com/200x150",
-      },
-      {
-        id: 2,
-        title: "Black Holes Explained",
-        url: "https://www.example.com/video2.mp4",
-        thumbnail: "https://via.placeholder.com/200x150",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "Marine Biology",
-    videos: [
-      {
-        id: 3,
-        title: "Deep Sea Wonders",
-        url: "https://www.example.com/video3.mp4",
-        thumbnail: "https://via.placeholder.com/200x150",
-      },
-      {
-        id: 4,
-        title: "Coral Reefs",
-        url: "https://www.example.com/video4.mp4",
-        thumbnail: "https://via.placeholder.com/200x150",
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "History",
-    videos: [
-      {
-        id: 5,
-        title: "Ancient Civilizations",
-        url: "https://www.example.com/video5.mp4",
-        thumbnail: "https://via.placeholder.com/200x150",
-      },
-      {
-        id: 6,
-        title: "World Wars",
-        url: "https://www.example.com/video6.mp4",
-        thumbnail: "https://via.placeholder.com/200x150",
-      },
-    ],
-  },
-];
+export const OfficialVideo = React.forwardRef((props, ref) => {
+  // Use forwardRef to accept ref
+  const [currentVideo, setCurrentVideo] = useState({
+    src: ProbVideo,
+    title: "1 dars",
+    description: "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
+  });
 
-export const OfficialVideo = ({ id }) => {
-  const [selectedCourse, setSelectedCourse] = useState(courses[0]);
-  const [selectedVideo, setSelectedVideo] = useState(selectedCourse.videos[0]);
-
-  const handleCourseChange = (course) => {
-    setSelectedCourse(course);
-    setSelectedVideo(course.videos[0]);
+  const changeVideo = (videoData) => {
+    setCurrentVideo(videoData);
   };
 
   return (
-    <Section id={id}>
-      <Container>
+    <div className="container-2">
+      <VideoPageWrapper ref={ref}>
         <Sidebar>
-          {courses.map((course) => (
-            <CourseItem
-              key={course.id}
-              onClick={() => handleCourseChange(course)}
-              isActive={selectedCourse.id === course.id}
-            >
-              {course.title}
-            </CourseItem>
-          ))}
+          <NavItem
+            onClick={() =>
+              changeVideo({
+                src: ProbVideo,
+                title: "1 dars",
+                description:
+                  "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
+              })
+            }
+          >
+            <FaVideo />
+            <span>Front-end</span>
+          </NavItem>
+          <NavItem
+            onClick={() =>
+              changeVideo({
+                src: ProbVideo,
+                title: "1 dars",
+                description:
+                  "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
+              })
+            }
+          >
+            <FaVideo />
+            <span>Marketing</span>
+          </NavItem>
+          <NavItem
+            onClick={() =>
+              changeVideo({
+                src: ProbVideo,
+                title: "1 dars",
+                description:
+                  "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
+              })
+            }
+          >
+            <FaVideo />
+            <span>Mobilografiya</span>
+          </NavItem>
+          <NavItem
+            onClick={() =>
+              changeVideo({
+                src: ProbVideo,
+                title: "1 dars",
+                description:
+                  "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
+              })
+            }
+          >
+            <FaVideo />
+            <span>Design</span>
+          </NavItem>
+          {/* Other NavItems... */}
         </Sidebar>
-
-        <MainContent>
-          <VideoPlayer>
-            <video controls width="100%">
-              <source src={selectedVideo.url} type="video/mp4" />
+        <VideoSection>
+          <VideoInner>
+            <VideoTitle>{currentVideo.title}</VideoTitle>
+            <VideoText>{currentVideo.description}</VideoText>
+            <VideoEmbed controls poster={Oblojka2}>
+              <source src={currentVideo.src} type="video/mp4" />
               Your browser does not support the video tag.
-            </video>
-            <Title>{selectedVideo.title}</Title>
-          </VideoPlayer>
-          <VideoGrid>
-            {selectedCourse.videos.map((video) => (
-              <VideoThumbnail
-                key={video.id}
-                onClick={() => setSelectedVideo(video)}
-                isActive={selectedVideo.id === video.id}
-              >
-                <ThumbnailImage src={video.thumbnail} alt={video.title} />
-                <ThumbnailTitle>{video.title}</ThumbnailTitle>
-              </VideoThumbnail>
-            ))}
-          </VideoGrid>
-        </MainContent>
-      </Container>
-    </Section>
+            </VideoEmbed>
+          </VideoInner>
+        </VideoSection>
+      </VideoPageWrapper>
+    </div>
   );
-};
+});
 
-// Styled Components
-const Section = styled.section`
-  width: 105%;
-  padding: 2rem;
-  background-color: #f5f5f5;
-`;
-
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
+const VideoPageWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 2rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
+  height: 100vh;
 `;
 
-const Sidebar = styled.div`
-  width: 20%;
+const Sidebar = styled.aside`
+  width: 250px;
   background-color: #fff;
-  padding: 1rem;
-  border-right: 1px solid #ccc;
+  color: #ecf0f1;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: relative; // Added for positioning
 
   @media (max-width: 768px) {
     width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #ccc;
+    height: auto;
   }
 `;
 
-const MainContent = styled.div`
-  flex-grow: 1;
-  padding: 1rem;
-`;
+// const SidebarHeader = styled.h2`
+//   font-size: 24px;
+//   margin-bottom: 20px;
+//   text-align: center;
+//   color: #ecdbba; // Light color for header
+// `;
 
-const CourseItem = styled.div`
-  color: ${(props) => (props.isActive ? "white" : "black")};
-  padding: 0.5rem 1rem;
+const NavItem = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px; // Rounded corners
   cursor: pointer;
-  background-color: ${(props) => (props.isActive ? "#d0b072" : "#f5f5f5")};
-  margin-bottom: 1rem;
-  padding: 20px 10px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 
   &:hover {
-    background-color: #d0b072;
-    color: white;
+    background-color: #e9d9bc4f;
+  }
+
+  svg {
+    margin-right: 10px; // Space between icon and text
+    font-size: 20px; // Icon size
+    color: #d0b072; // Change icon color to black
+  }
+
+  span {
+    color: #d0b072;
+    font-size: 18px;
+    // Text size: ;
   }
 `;
 
-const VideoPlayer = styled.div`
-  position: relative;
-  background-color: #000;
-  padding: 0.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+const VideoSection = styled.section`
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 `;
 
-const Title = styled.h2`
-  color: #fff;
-  margin-top: 0.5rem;
+const VideoInner = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
-  font-size: 1.25rem;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff; // White background for video section
 `;
 
-const VideoGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+const VideoTitle = styled.h2`
+  font-size: 28px;
+  color: #d0b072;
+  margin: 0 0 10px 0;
+`;
+
+const VideoText = styled.p`
+  font-size: 18px;
+  color: #d0bc8f;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+`;
+
+const VideoEmbed = styled.video`
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  display: block;
+  height: auto;
+  border: 1px solid #ddd;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    height: 200px; // Adjust the height for mobile view
   }
 `;
 
-const VideoThumbnail = styled.div`
-  cursor: pointer;
-  border: 2px solid ${(props) => (props.isActive ? "#d0b072" : "transparent")};
-  border-radius: 8px;
-  overflow: hidden;
-  transition: border-color 0.3s ease;
-
-  &:hover {
-    border-color: #d0b072;
-  }
-`;
-
-const ThumbnailImage = styled.img`
-  width: 100%;
-  height: auto;
-  display: block;
-`;
-
-const ThumbnailTitle = styled.p`
-  padding: 0.5rem;
-  text-align: center;
-  font-weight: bold;
-  background-color: #fff;
-  margin: 0;
-`;
+export default OfficialVideo;

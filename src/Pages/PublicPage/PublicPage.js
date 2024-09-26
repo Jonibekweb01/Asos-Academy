@@ -58,7 +58,7 @@ export const PublicPage = () => {
 
       <Video />
 
-      <Footer id="contacts"/>
+      <Footer id="contacts" />
     </>
   );
 };
@@ -161,3 +161,5 @@ const LogButton = styled.button`
 `;
 
 const LoginImg = styled.img``;
+
+

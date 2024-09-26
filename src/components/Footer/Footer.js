@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Footer = ({ id }) => {
+export const Footer = React.forwardRef(({ id }, ref) => {
   return (
-    <Footers id={id}>
+    <Footers ref={ref} id={id}>
       <div className="container">
         <FooterInner>
           <FooterContent>
@@ -39,7 +39,7 @@ export const Footer = ({ id }) => {
       </div>
     </Footers>
   );
-};
+});
 
 const Footers = styled.footer`
   background-color: #d0b072;

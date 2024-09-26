@@ -6,19 +6,40 @@ import styled from "styled-components";
 
 export const Form = () => {
   const nameRef = useRef();
+  const phoneRef = useRef();
+  const lastNameRef = useRef();
   const passwordRef = useRef();
+  const roleRef = useRef();
   const { setToken } = useContext(AuthContext);
+  const { setRole } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const name = nameRef.current.value;
-    const password = passwordRef.current.value;
+
+    // Проверка на существование элементов перед извлечением значений
+    const name = nameRef?.current?.value;
+    const lastName = lastNameRef?.current?.value;
+    const phone = phoneRef?.current?.value;
+    const password = passwordRef?.current?.value;
+    const selectedRole = roleRef?.current?.value;
+
+    if (!phone || !password) {
+      console.error("Phone and password are required!");
+      return;
+    }
 
     axios
-      .post("https://reqres.in/api/login", { email: name, password: password })
+      .post("http://45.130.148.72:4000/auth/login", {
+        mobil_phone: phone,
+        password: password,
+        // first_name: name,
+        // last_name: lastName,
+        // role: selectedRole,
+      })
       .then((data) => {
         setToken(data.data);
+        setRole(data.data.role);
         navigate("/");
       })
       .catch((error) => {
@@ -28,23 +49,29 @@ export const Form = () => {
 
   return (
     <Formik onSubmit={handleSubmit}>
-      <FormikInput
-        placeholder="Name"
-        aria-label="Name"
-        type="email"
-        ref={nameRef}
+      {/* Проверьте наличие всех нужных элементов  */}
+
+      <FormikPhone
+        placeholder="Phone Number"
+        aria-label="Phone Number"
+        type="tel"
+        name="mobil_phone"
+        ref={phoneRef}
       />
       <FormikInput
         placeholder="Password"
+        name="password"
         aria-label="Password"
         type="password"
         ref={passwordRef}
       />
       <FormLink href="/">Forgot password?</FormLink>
-      <FormButton type="submit">Login</FormButton>
+      <FormButton type="submit">Register</FormButton>
     </Formik>
   );
 };
+
+// Styled components (unchanged)
 
 const Formik = styled.form`
   display: flex;
@@ -70,8 +97,33 @@ const FormikInput = styled.input`
 
   &:focus::placeholder {
     transition: all 1.2s ease;
-
     font-size: 16px;
+  }
+`;
+
+const FormikPhone = styled(FormikInput)``;
+
+const FormikLast = styled(FormikInput)``;
+
+const FormikSelect = styled.select`
+  width: 320px;
+  padding: 12px 5px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 3px solid black;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: gray;
+
+  &:focus {
+    border-bottom: 3px solid #3c3c3c;
+  }
+
+  option {
+    background-color: white;
+    color: black;
   }
 `;
 
@@ -91,7 +143,6 @@ const FormButton = styled.button`
   padding: 15px 40px;
   font-size: 16px;
   color: white;
-  /* background-color: #CEA966; */
   background-color: black;
   border: none;
   border-radius: 10px;

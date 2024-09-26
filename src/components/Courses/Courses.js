@@ -39,9 +39,7 @@ const CourseInner = styled.div`
   margin: 0 auto;
   padding: 40px;
   /* background-color: #f8f8f8; */
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
   background-color: #f8f8f8;
   background-image: url(${Online2});
   background-size: 420px 400px;
@@ -66,3 +64,5 @@ const CourseText = styled.p`
   margin: 0;
   line-height: 35px;
 `;
+
+

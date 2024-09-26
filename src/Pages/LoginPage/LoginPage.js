@@ -12,15 +12,6 @@ export const LoginPage = () => {
     <>
       <LoginBox className="login">
         <LoginNextBox className="login__box">
-          <LoginLeftBox className="login__left">
-            <LoginImage
-              className="login__image"
-              src={Logo}
-              //   width={100}
-              height={595}
-              alt="Logo of the site"
-            />
-          </LoginLeftBox>
           <LoginRightBox className="login__right">
             <LoginTitleBox className="login__titleBox">
               <LoginInnerBox className="login__innerBox">
@@ -32,6 +23,15 @@ export const LoginPage = () => {
             <LoginRightInnerBox className="login__rightInner">
               <Form className="login__form" />
             </LoginRightInnerBox>
+          </LoginRightBox>
+          <LoginLeftBox className="login__left">
+            <LoginImage
+              className="login__image"
+              src={Logo}
+              //   width={100}
+              height={595}
+              alt="Logo of the site"
+            />
             <SocialMedia className="login__socialMedia">
               <a href="https://telegram.com" className="login__link">
                 <SocialLogos
@@ -61,7 +61,7 @@ export const LoginPage = () => {
                 />
               </a>
             </SocialMedia>
-          </LoginRightBox>
+          </LoginLeftBox>
         </LoginNextBox>
       </LoginBox>
     </>
@@ -84,9 +84,6 @@ const LoginNextBox = styled.div`
   margin: auto auto;
   background-color: white;
   border-radius: 10px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 `;
 const LoginLeftBox = styled.div`
   position: relative;
@@ -108,7 +105,7 @@ const LoginImage = styled.img`
   display: block;
   max-width: 650px;
   width: 100%;
-  height: 595px;
+  height: 520px;
   /* padding: 415px 0 0 450px; */
 `;
 const LoginTitle = styled.h2`
@@ -123,11 +120,11 @@ const LoginTitleBox = styled.div`
   text-align: center;
   max-width: 390px;
   width: 100%;
-  margin-bottom: 30px !important;
+  margin-bottom: 100px !important;
 `;
 
 const LoginInnerBox = styled.div`
-  padding: 70px 0 0 0;
+  padding: 30px 0 0 0;
 `;
 
 const RightBoxTitle = styled.h2`
@@ -152,7 +149,6 @@ const LogoStrong = styled.strong`
 `;
 
 const SocialMedia = styled.div`
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
