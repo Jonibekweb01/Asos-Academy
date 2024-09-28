@@ -201,6 +201,7 @@ const SocialMedia = styled.div`
 
   @media (max-width: 458px) {
     margin-top: 10px;
+    margin-bottom: 10px;
     gap: 5px;
   }
 `;
