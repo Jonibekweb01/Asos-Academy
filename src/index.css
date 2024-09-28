@@ -13,6 +13,14 @@ a {
     max-width: 1200px;
     width: 100%;
     padding: 0 20px;
+
+    margin: 0 auto !important;
+}
+
+.containers {
+    max-width: 1486px;
+    width: 100%;
+    padding: 0 20px;
     margin: 0 auto !important;
 }
 
@@ -59,3 +67,11 @@ html {
         padding: 0;
     }
 }
+
+.MuiPaper-root  {
+    height: 40px;
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+    }
+    

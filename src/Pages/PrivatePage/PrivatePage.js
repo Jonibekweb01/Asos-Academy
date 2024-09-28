@@ -6,15 +6,13 @@ import ImgLogin from "../../assets/images/login_24dp_FFFFFF_FILL0_wght400_GRAD0_
 import { Hero } from "../../components/Hero/Hero";
 import { AuthContext } from "../../context/AuthContext";
 import { OfficialVideo } from "../../components/OfficialVideo/OfficialVideo";
-import { Footer } from "../../components/Footer/Footer";
-import { GrLinkTop } from "react-icons/gr";
 
 export const PrivatePage = () => {
-  const { token, setToken } = useContext(AuthContext); // Add setToken from AuthContext
+  const { token, setToken } = useContext(AuthContext);
   const officialVideoRef = useRef(null);
   const contactsRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-  const navigate = useNavigate(); // useNavigate hook for navigation
+  const navigate = useNavigate();
 
   const scrollToVideoSection = () => {
     officialVideoRef.current.scrollIntoView({ behavior: "smooth" });
@@ -43,11 +41,10 @@ export const PrivatePage = () => {
     };
   }, []);
 
-  // Log out handler
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Remove token from localStorage
-    setToken(null); // Update token in context (optional, depends on your logic)
-    navigate("/login"); // Redirect to login page
+    localStorage.removeItem("token");
+    setToken(null);
+    navigate("/login");
   };
 
   return (
@@ -73,15 +70,6 @@ export const PrivatePage = () => {
                   className="header__links"
                 >
                   Videos
-                </HeaderListLink>
-              </HeaderItem>
-              <HeaderItem>
-                <HeaderListLink
-                  as="button"
-                  onClick={scrollToContatcsSection}
-                  className="header__links"
-                >
-                  Contacts
                 </HeaderListLink>
               </HeaderItem>
             </HeaderList>
@@ -115,12 +103,6 @@ export const PrivatePage = () => {
       </Header>
       <Hero />
       <OfficialVideo ref={officialVideoRef} id="videos" />
-      <Footer ref={contactsRef} id="contacts" />
-      {isVisible && (
-        <ScrollToTopButton onClick={scrollToTop}>
-          <GrLinkTop />
-        </ScrollToTopButton>
-      )}
     </>
   );
 };

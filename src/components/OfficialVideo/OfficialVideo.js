@@ -1,81 +1,68 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FaVideo, FaUsers, FaChartLine, FaCog } from "react-icons/fa"; // Importing icons
+import { FaVideo } from "react-icons/fa"; // Importing icons
 import "../Video/VIdeo.css";
 import "./OfficialVideo.css";
 import ProbVideo from "../../assets/videos/prob.mp4"; // Video 1
 import back from "../../assets/images/linear.png";
 import Oblojka2 from "../../assets/images/oblojka2.jpg";
+import { TbStackFront } from "react-icons/tb";
 
 export const OfficialVideo = React.forwardRef((props, ref) => {
-  // Use forwardRef to accept ref
   const [currentVideo, setCurrentVideo] = useState({
     src: ProbVideo,
     title: "1 dars",
     description: "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
   });
 
-  const changeVideo = (videoData) => {
+  const [activeIndex, setActiveIndex] = useState(0); // State for active index
+
+  const videos = [
+    {
+      src: ProbVideo,
+      title: "Front-end",
+      description:
+        "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
+    },
+    {
+      src: ProbVideo,
+      title: "Marketing",
+      description:
+        "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
+    },
+    {
+      src: ProbVideo,
+      title: "Mobilografiya",
+      description:
+        "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
+    },
+    {
+      src: ProbVideo,
+      title: "Design",
+      description:
+        "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
+    },
+  ];
+
+  const changeVideo = (videoData, index) => {
     setCurrentVideo(videoData);
+    setActiveIndex(index); // Update active index
   };
 
   return (
     <div className="container-2">
       <VideoPageWrapper ref={ref}>
         <Sidebar>
-          <NavItem
-            onClick={() =>
-              changeVideo({
-                src: ProbVideo,
-                title: "1 dars",
-                description:
-                  "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
-              })
-            }
-          >
-            <FaVideo />
-            <span>Front-end</span>
-          </NavItem>
-          <NavItem
-            onClick={() =>
-              changeVideo({
-                src: ProbVideo,
-                title: "1 dars",
-                description:
-                  "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
-              })
-            }
-          >
-            <FaVideo />
-            <span>Marketing</span>
-          </NavItem>
-          <NavItem
-            onClick={() =>
-              changeVideo({
-                src: ProbVideo,
-                title: "1 dars",
-                description:
-                  "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
-              })
-            }
-          >
-            <FaVideo />
-            <span>Mobilografiya</span>
-          </NavItem>
-          <NavItem
-            onClick={() =>
-              changeVideo({
-                src: ProbVideo,
-                title: "1 dars",
-                description:
-                  "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
-              })
-            }
-          >
-            <FaVideo />
-            <span>Design</span>
-          </NavItem>
-          {/* Other NavItems... */}
+          {videos.map((video, index) => (
+            <NavItem
+              key={index}
+              active={activeIndex === index} // Pass active state
+              onClick={() => changeVideo(video, index)}
+            >
+              <TbStackFront />
+              <span>{video.title}</span>
+            </NavItem>
+          ))}
         </Sidebar>
         <VideoSection>
           <VideoInner>
@@ -96,6 +83,7 @@ const VideoPageWrapper = styled.div`
   display: flex;
   flex-direction: row;
   height: 100vh;
+  background-color: #f7f9fc; // Light background color for better contrast
 `;
 
 const Sidebar = styled.aside`
@@ -114,13 +102,6 @@ const Sidebar = styled.aside`
   }
 `;
 
-// const SidebarHeader = styled.h2`
-//   font-size: 24px;
-//   margin-bottom: 20px;
-//   text-align: center;
-//   color: #ecdbba; // Light color for header
-// `;
-
 const NavItem = styled.div`
   display: flex;
   align-items: center;
@@ -129,21 +110,22 @@ const NavItem = styled.div`
   border-radius: 5px; // Rounded corners
   cursor: pointer;
   transition: background-color 0.3s;
+  background-color: ${(props) =>
+    props.active ? "#e9d9bc4f" : "transparent"}; // Change background if active
 
   &:hover {
-    background-color: #e9d9bc4f;
+    background-color: #e9d9bc4f; // Slightly highlight on hover
   }
 
   svg {
     margin-right: 10px; // Space between icon and text
     font-size: 20px; // Icon size
-    color: #d0b072; // Change icon color to black
+    color: black; // Change icon color to black
   }
 
   span {
-    color: #d0b072;
+    color: black;
     font-size: 18px;
-    // Text size: ;
   }
 `;
 
@@ -161,25 +143,24 @@ const VideoInner = styled.div`
   text-align: center;
   border-radius: 10px;
   padding: 20px;
-  background-color: #fff; // White background for video section
 `;
 
 const VideoTitle = styled.h2`
   font-size: 28px;
-  color: #d0b072;
+  color: black;
   margin: 0 0 10px 0;
 `;
 
 const VideoText = styled.p`
   font-size: 18px;
-  color: #d0bc8f;
+  color: black;
   margin: 0 0 20px 0;
   line-height: 1.5;
 `;
 
 const VideoEmbed = styled.video`
   width: 100%;
-  max-width: 100%;
+  max-width: 700px;
   border-radius: 10px;
   display: block;
   height: auto;

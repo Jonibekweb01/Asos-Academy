@@ -63,7 +63,6 @@ export const PublicPage = () => {
   );
 };
 
-// Styled Components
 const Header = styled.header`
   position: fixed;
   top: 0;

@@ -65,8 +65,7 @@ export const Form = () => {
         type="password"
         ref={passwordRef}
       />
-      <FormLink href="/">Forgot password?</FormLink>
-      <FormButton type="submit">Register</FormButton>
+      <FormButton type="submit">Login</FormButton>
     </Formik>
   );
 };

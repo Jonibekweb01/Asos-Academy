@@ -28,7 +28,6 @@ function App() {
           )
         }
       />
-      {/* Маршрут для страницы входа */}
       <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
