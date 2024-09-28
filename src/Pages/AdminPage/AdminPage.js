@@ -490,7 +490,7 @@ export const AdminPage = () => {
             onClick={() => setActiveCategory("addStudent")}
           >
             <IoPersonAdd style={{ fontSize: "23px" }} />
-            Add Student
+            Add
           </SidebarItem>
         </Sidebar>
 
@@ -541,6 +541,10 @@ const LoginImg = styled.img``;
 const PageLayout = styled.div`
   display: flex;
   padding: 0 0 0 260px;
+
+  @media (max-width: 458px) {
+    padding: 0px;
+  }
 `;
 
 const Sidebar = styled.div`
@@ -557,6 +561,12 @@ const Sidebar = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 10px;
+  }
+
+  @media (max-width: 458px) {
+    top: 70px;
+    height: 40px;
+    padding: 20px 0 0 0;
   }
 `;
 
@@ -601,9 +611,8 @@ const HeaderInner = styled.div`
   padding: 5px 0;
 
   @media (max-width: 481px) {
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
 `;
 
@@ -638,6 +647,12 @@ const Main = styled.main`
     padding: 120px 10px;
     flex-direction: column;
   }
+
+  @media (max-width: 458px) {
+    padding: 240px 35px;
+    flex-direction: column;
+    align-items: stretch; /* Stretch items to fill available space */
+  }
 `;
 
 const FormContainer = styled.form`
@@ -652,6 +667,11 @@ const FormContainer = styled.form`
     max-width: 90%;
     padding: 15px;
   }
+
+  @media (max-width: 458px) {
+    padding: 10px; /* Reduced padding for smaller screens */
+    max-width: 95%; /* Take full width */
+  }
 `;
 
 const FormTitle = styled.h2`
@@ -661,7 +681,7 @@ const FormTitle = styled.h2`
   color: #d0b072;
 
   @media (max-width: 481px) {
-    font-size: 20px;
+    font-size: 27px;
   }
 `;
 
@@ -676,7 +696,7 @@ const Label = styled.label`
   color: #d0b072;
 
   @media (max-width: 481px) {
-    font-size: 14px;
+    font-size: 20px;
   }
 `;
 
@@ -694,9 +714,16 @@ const Input = styled.input`
   }
 
   @media (max-width: 481px) {
+    width: 305px;
     font-size: 14px;
-    padding: 8px;
+    padding: 15px;
+
+    &::placeholder {
+      font-size: 18px;
+    }
   }
+
+
 `;
 
 const Select = styled.select`
@@ -738,17 +765,35 @@ const SubmitButton = styled.button`
   }
 
   @media (max-width: 481px) {
-    font-size: 16px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 458px) {
+    font-size: 18px; /* Slightly smaller font for smaller screens */
+    padding: 10px; /* Reduced padding for smaller screens */
   }
 `;
 
 const CategoryContent = styled.div`
   max-width: 97%;
   width: 100%;
+
   h2 {
     margin-bottom: 10px;
+    font-size: 24px; /* Base font size for h2 */
   }
+
   p {
     font-size: 16px;
+  }
+
+  @media (max-width: 458px) {
+    h2 {
+      font-size: 20px; /* Adjust font size for smaller screens */
+    }
+
+    p {
+      font-size: 14px; /* Adjust paragraph font size */
+    }
   }
 `;

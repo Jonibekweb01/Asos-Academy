@@ -50,7 +50,7 @@ export const PrivatePage = () => {
   return (
     <>
       <Header>
-        <div className="container">
+        <div className="containers">
           <HeaderInner>
             <HeaderLogoBox>
               <NavLink to="/" className="header__linkImg">
@@ -101,7 +101,7 @@ export const PrivatePage = () => {
           </HeaderInner>
         </div>
       </Header>
-      <Hero />
+      {/* <Hero /> */}
       <OfficialVideo ref={officialVideoRef} id="videos" />
     </>
   );
