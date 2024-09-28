@@ -145,7 +145,8 @@ const LoginTitle = styled.h2`
   }
 
   @media (max-width: 458px) {
-    font-size: 28px;
+    font-size: 48px;
+    margin-bottom: 40px;
     text-align: center;
   }
 `;
@@ -209,7 +210,7 @@ const SocialLogos = styled.img`
   height: 30px;
 
   @media (max-width: 458px) {
-    width: 25px;
-    height: 25px;
+    width: 45px;
+    height: 35px;
   }
 `;

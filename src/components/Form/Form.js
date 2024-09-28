@@ -98,6 +98,12 @@ const FormikInput = styled.input`
     transition: all 1.2s ease;
     font-size: 16px;
   }
+  @media (max-width: 458px) {
+    &::placeholder {
+      font-size: 20px;
+    }
+    padding: 20px !important;
+  }
 `;
 
 const FormikPhone = styled(FormikInput)``;
@@ -151,5 +157,10 @@ const FormButton = styled.button`
 
   &:hover {
     background-color: #3c3c3c;
+  }
+  @media (max-width: 458px) {
+    padding: 15px 40px;
+    margin-top: 10px;
+    font-size: 25px;
   }
 `;

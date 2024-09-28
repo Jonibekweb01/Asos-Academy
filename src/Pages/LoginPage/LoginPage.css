@@ -16,11 +16,11 @@
     }
 
     .login__titleBox {
-        width: 220px !important;
-        margin-top: 50px !important;
+        width: 100% !important;
+        margin-top: 200px !important;
     }
 
     .login__socialMedia {
-        margin-top: 140px !important;
+        margin-top: 280px !important;
     }
 }
