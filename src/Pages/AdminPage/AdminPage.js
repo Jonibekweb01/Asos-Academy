@@ -335,7 +335,7 @@ export const AdminPage = () => {
                 .filter((admin) => admin.role === "admin") // Фильтрация по роли
                 .map((admin, index) => (
                   <tr key={admin.id}>
-                    <td>{index + 1}</td> {/* Использование индекса для ID */}
+                    <td>{index + 1}</td>
                     <td>{admin.first_name}</td>
                     <td>{admin.last_name}</td>
                     <td>{admin.mobil_phone}</td>
@@ -722,8 +722,6 @@ const Input = styled.input`
       font-size: 18px;
     }
   }
-
-
 `;
 
 const Select = styled.select`
