@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import Skeleton from "react-loading-skeleton"; // импортируем библиотеку
+import "react-loading-skeleton/dist/skeleton.css"; // добавляем стили
 import Logo from "../../assets/images/oq-fon-uchun-min.png";
 import ImgLogin from "../../assets/images/login_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg";
 import { Hero } from "../../components/Hero/Hero";
-import "./PublicPage.css";
 import { Courses } from "../../components/Courses/Courses";
 import { Video } from "../../components/Video/Video";
 import { Footer } from "../../components/Footer/Footer";
+import "./PublicPage.css";
 
 export const PublicPage = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Имитация загрузки данных
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // 2 секунды ожидания
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <Header>
@@ -17,52 +30,89 @@ export const PublicPage = () => {
           <HeaderInner>
             <HeaderLogoBox>
               <NavLink to="/" className="header__linkImg">
-                <HeaderImg
-                  src={Logo}
-                  alt="Company Logo"
-                  width={100}
-                  height={65}
-                />
+                {loading ? (
+                  <Skeleton width={100} height={65} />
+                ) : (
+                  <HeaderImg
+                    src={Logo}
+                    alt="Company Logo"
+                    width={100}
+                    height={65}
+                  />
+                )}
               </NavLink>
             </HeaderLogoBox>
             <HeaderList className="header__list">
               <HeaderItem>
-                <HeaderListLink to="#about" className="header__links">
-                  About
-                </HeaderListLink>
+                {loading ? (
+                  <Skeleton width={80} height={20} />
+                ) : (
+                  <HeaderListLink to="#about" className="header__links">
+                    About
+                  </HeaderListLink>
+                )}
               </HeaderItem>
               <HeaderItem>
-                <HeaderListLink to="#contacts" className="header__links">
-                  Contacts
-                </HeaderListLink>
+                {loading ? (
+                  <Skeleton width={100} height={20} />
+                ) : (
+                  <HeaderListLink to="#contacts" className="header__links">
+                    Contacts
+                  </HeaderListLink>
+                )}
               </HeaderItem>
             </HeaderList>
-            <LogButton>
-              <NavLink to="/login" className="header__loginLink">
-                Login
-              </NavLink>
-              <LoginImg
-                src={ImgLogin}
-                alt="Login Icon"
-                width={25}
-                height={25}
-              />
-            </LogButton>
+            {loading ? (
+              <>
+                <Skeleton width={80} height={40} />
+              </>
+            ) : (
+              <>
+                <LogButton>
+                  <NavLink to="/login" className="header__loginLink">
+                    Login
+                  </NavLink>
+                  <LoginImg
+                    src={ImgLogin}
+                    alt="Login Icon"
+                    width={25}
+                    height={25}
+                  />
+                </LogButton>
+              </>
+            )}
           </HeaderInner>
         </div>
       </Header>
 
-      <Hero />
+      {loading ? (
+        <Skeleton height={300} /> // скелет для Hero
+      ) : (
+        <Hero />
+      )}
 
-      <Courses id="about" />
+      {loading ? (
+        <Skeleton height={200} count={5} /> // скелет для Courses
+      ) : (
+        <Courses id="about" />
+      )}
 
-      <Video />
+      {loading ? (
+        <Skeleton height={400} /> // скелет для Video
+      ) : (
+        <Video />
+      )}
 
-      <Footer id="contacts" />
+      {loading ? (
+        <Skeleton height={200} /> // скелет для Footer
+      ) : (
+        <Footer id="contacts" />
+      )}
     </>
   );
 };
 
+// Стили остаются такими же
 const Header = styled.header`
   position: fixed;
   top: 0;
@@ -96,12 +146,12 @@ const HeaderList = styled.ul`
   margin: 0;
   padding: 0;
   transition: transform 0.3s ease-in-out;
-  transform: translateX(0); /* Ensure menu is visible on larger screens */
+  transform: translateX(0);
 
   @media (max-width: 481px) {
-    transform: translateX(100%); /* Hide menu by default on mobile */
+    transform: translateX(100%);
     &.open {
-      transform: translateX(0); /* Show menu when open */
+      transform: translateX(0);
     }
   }
 `;
@@ -110,7 +160,7 @@ const HeaderItem = styled.li``;
 
 const HeaderListLink = styled(NavLink)`
   position: relative;
-  color: #333; /* Adjust color as needed */
+  color: #333;
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
@@ -124,7 +174,7 @@ const HeaderListLink = styled(NavLink)`
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #d0b072; /* Adjust color as needed */
+    background-color: #d0b072;
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease-out;
@@ -159,13 +209,10 @@ const LogButton = styled.button`
   }
 
   &:hover {
-    transform: scale(1); 
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Smooth shadow effect */
+    transform: scale(1);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     border-color: #b59c5a;
   }
 `;
 
-
 const LoginImg = styled.img``;
-
-

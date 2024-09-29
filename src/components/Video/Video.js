@@ -15,11 +15,10 @@ export const Video = () => {
           </VideoText>
           <VideoEmbed
             className="video-embed"
-            controls
-            poster={Oblojka} // Set the cover image here
+            controls={true}
+            poster={Oblojka} 
           >
             <source src={ProbVideo} type="video/mp4" />
-            Your browser does not support the video tag.
           </VideoEmbed>
         </VideoInner>
       </div>

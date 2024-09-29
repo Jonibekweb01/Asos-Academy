@@ -4,7 +4,6 @@ import { createContext, useEffect, useState } from "react";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  // Получаем сохраненные в localStorage токен и роль
   const [token, setToken] = useState(JSON.parse(localStorage.getItem("token")));
   const [role, setRole] = useState(JSON.parse(localStorage.getItem("role")));
 

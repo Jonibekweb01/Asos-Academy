@@ -26,9 +26,9 @@ export const AdminPage = () => {
   const [notification, setNotification] = useState({ message: "", type: "" });
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Remove token from localStorage
-    setToken(null); // Update token in context (optional, depends on your logic)
-    navigate("/login"); // Redirect to login page
+    localStorage.removeItem("token");
+    setToken(null);
+    navigate("/login");
   };
 
   const handleSubmit = (event) => {

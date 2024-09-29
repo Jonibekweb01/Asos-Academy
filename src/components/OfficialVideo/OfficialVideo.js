@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FaVideo } from "react-icons/fa"; // Importing icons
 import "../Video/VIdeo.css";
 import "./OfficialVideo.css";
-import ProbVideo from "../../assets/videos/prob.mp4"; // Video 1
-import back from "../../assets/images/linear.png";
+import ProbVideo from "../../assets/videos/prob.mp4";
+import ProbVideo2 from "../../assets/videos/2024-09-16 20-23-25.mkv";
 import Oblojka2 from "../../assets/images/oblojka2.jpg";
 import { TbStackFront } from "react-icons/tb";
 
@@ -25,10 +24,9 @@ export const OfficialVideo = React.forwardRef((props, ref) => {
         "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
     },
     {
-      src: ProbVideo,
+      src: ProbVideo2,
       title: "Marketing",
-      description:
-        "Ushbu kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
+      description: "Kurslarni hozirda mutlaqo bepul o'rganishingiz mumkin.",
     },
     {
       src: ProbVideo,
@@ -56,7 +54,7 @@ export const OfficialVideo = React.forwardRef((props, ref) => {
           {videos.map((video, index) => (
             <NavItem
               key={index}
-              active={activeIndex === index} // Pass active state
+              active={activeIndex === index}
               onClick={() => changeVideo(video, index)}
             >
               <TbStackFront />
@@ -68,7 +66,14 @@ export const OfficialVideo = React.forwardRef((props, ref) => {
           <VideoInner>
             <VideoTitle>{currentVideo.title}</VideoTitle>
             <VideoText>{currentVideo.description}</VideoText>
-            <VideoEmbed controls poster={Oblojka2}>
+            <VideoEmbed
+              controls={true}
+              poster={Oblojka2}
+              onError={(e) => {
+                console.error("Error loading video", e);
+                e.target.src = ProbVideo; // Fallback to another video or display an error message
+              }}
+            >
               <source src={currentVideo.src} type="video/mp4" />
               Your browser does not support the video tag.
             </VideoEmbed>
@@ -86,8 +91,8 @@ const VideoPageWrapper = styled.div`
   background-color: #f7f9fc;
 
   @media (max-width: 768px) {
-    flex-direction: column; // Stack elements vertically on small screens
-    height: auto; // Allow height to be auto for mobile view
+    flex-direction: column;
+    height: auto;
   }
 `;
 
@@ -98,8 +103,10 @@ const VideoSection = styled.section`
   justify-content: center;
   padding: 20px;
   @media (max-width: 458px) {
+    background-color: #f7f9fc;
     margin-top: 80px;
     width: 100%;
+    height: 560px;
   }
 `;
 
@@ -117,7 +124,7 @@ const VideoTitle = styled.h2`
   margin: 0 0 10px 0;
 
   @media (max-width: 458px) {
-    font-size: 24px; // Reduce font size on smaller screens
+    font-size: 24px;
   }
 `;
 
@@ -141,9 +148,10 @@ const Sidebar = styled.aside`
   display: flex;
   flex-direction: column;
   position: relative;
+  left: -14px;
 
   @media (max-width: 768px) {
-    width: 100%; // Full width on mobile
+    width: 100%;
     height: auto;
     top: 80px;
   }
