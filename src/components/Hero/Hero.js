@@ -66,10 +66,16 @@ const FreeBtn = styled.button`
   background-color: #d0b072;
   border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 
   @media (max-width: 768px) {
     font-size: 18px;
     padding: 20px 25px;
+  }
+
+  &:hover {
+    transform: translateY(-2px); /* Slight upward movement on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Soft shadow effect */
   }
 `;
 
@@ -162,6 +168,7 @@ const SocialMedia = styled.div`
 
 const SocialLogos = styled.img`
   display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 
   @media (max-width: 768px) {
     width: 25px;
@@ -172,5 +179,9 @@ const SocialLogos = styled.img`
     width: 20px;
     height: 20px;
   }
-`;
 
+  &:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    opacity: 0.85; /* Slightly reduce opacity for a sleek look */
+  }
+`;

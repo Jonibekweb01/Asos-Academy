@@ -83,49 +83,11 @@ const VideoPageWrapper = styled.div`
   display: flex;
   flex-direction: row;
   height: 100vh;
-  background-color: #f7f9fc; // Light background color for better contrast
-`;
-
-const Sidebar = styled.aside`
-  width: 250px;
-  background-color: #fff;
-  color: #ecf0f1;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  position: relative; // Added for positioning
+  background-color: #f7f9fc;
 
   @media (max-width: 768px) {
-    width: 100%;
-    height: auto;
-  }
-`;
-
-const NavItem = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 5px; // Rounded corners
-  cursor: pointer;
-  transition: background-color 0.3s;
-  background-color: ${(props) =>
-    props.active ? "#e9d9bc4f" : "transparent"}; // Change background if active
-
-  &:hover {
-    background-color: #e9d9bc4f; // Slightly highlight on hover
-  }
-
-  svg {
-    margin-right: 10px; // Space between icon and text
-    font-size: 20px; // Icon size
-    color: black; // Change icon color to black
-  }
-
-  span {
-    color: black;
-    font-size: 18px;
+    flex-direction: column; // Stack elements vertically on small screens
+    height: auto; // Allow height to be auto for mobile view
   }
 `;
 
@@ -135,6 +97,10 @@ const VideoSection = styled.section`
   align-items: center;
   justify-content: center;
   padding: 20px;
+  @media (max-width: 458px) {
+    margin-top: 80px;
+    width: 100%;
+  }
 `;
 
 const VideoInner = styled.div`
@@ -149,6 +115,10 @@ const VideoTitle = styled.h2`
   font-size: 28px;
   color: black;
   margin: 0 0 10px 0;
+
+  @media (max-width: 458px) {
+    font-size: 24px; // Reduce font size on smaller screens
+  }
 `;
 
 const VideoText = styled.p`
@@ -156,6 +126,54 @@ const VideoText = styled.p`
   color: black;
   margin: 0 0 20px 0;
   line-height: 1.5;
+
+  @media (max-width: 458px) {
+    font-size: 16px; // Reduce font size on smaller screens
+  }
+`;
+
+const Sidebar = styled.aside`
+  width: 250px;
+  background-color: #d0b072;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: 100%; // Full width on mobile
+    height: auto;
+    top: 80px;
+  }
+`;
+
+const NavItem = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: ${(props) =>
+    props.active ? "rgba(255, 255, 255, 0.2)" : "transparent"};
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  svg {
+    margin-right: 10px;
+    font-size: 20px;
+    color: white;
+  }
+
+  span {
+    color: white;
+    font-size: 18px;
+  }
 `;
 
 const VideoEmbed = styled.video`
@@ -170,7 +188,7 @@ const VideoEmbed = styled.video`
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
   @media (max-width: 768px) {
-    height: 200px; // Adjust the height for mobile view
+    height: 200px;
   }
 `;
 

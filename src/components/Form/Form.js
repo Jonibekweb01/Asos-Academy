@@ -86,21 +86,19 @@ const FormikInput = styled.input`
   border: none;
   background-color: transparent;
   border-bottom: 3px solid black;
-  transition: all 0.2s ease;
-  font-size: 16px;
+  transition: all 0.3s ease;
+  font-size: 18px;
 
-  &::placeholder {
-    font-size: 14px;
-    transition: all 1.2s ease;
+  &:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+    border-bottom: 3px solid #555; /* Slight change in border color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
   }
 
-  &:focus::placeholder {
-    transition: all 1.2s ease;
-    font-size: 16px;
-  }
   @media (max-width: 458px) {
     &::placeholder {
-      font-size: 20px;
+      font-size: 20px !important;
+      transition: all 1.2s ease;
     }
     padding: 20px !important;
   }
@@ -153,11 +151,15 @@ const FormButton = styled.button`
   border-radius: 10px;
   outline: none;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
     background-color: #3c3c3c;
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
   }
+
   @media (max-width: 458px) {
     padding: 15px 40px;
     margin-top: 10px;

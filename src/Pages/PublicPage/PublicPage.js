@@ -150,14 +150,21 @@ const LogButton = styled.button`
   border: 2px solid #d0b072;
   border-radius: 10px;
   padding: 10px 15px;
-  transition: 0.4s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   overflow: hidden;
 
   & > a {
     color: white;
     text-decoration: none;
   }
+
+  &:hover {
+    transform: scale(1); 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Smooth shadow effect */
+    border-color: #b59c5a;
+  }
 `;
+
 
 const LoginImg = styled.img``;
 

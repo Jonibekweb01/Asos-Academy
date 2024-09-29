@@ -490,7 +490,7 @@ export const AdminPage = () => {
             onClick={() => setActiveCategory("addStudent")}
           >
             <IoPersonAdd style={{ fontSize: "23px" }} />
-            Add
+            Add Students
           </SidebarItem>
         </Sidebar>
 
@@ -525,13 +525,19 @@ const LogButton = styled.button`
   border: 2px solid #d0b072;
   border-radius: 10px;
   padding: 10px 15px;
-  transition: 0.4s ease;
+  transition: all 0.4s ease;
   overflow: hidden;
   color: white;
 
   & > a {
     color: white;
     text-decoration: none;
+  }
+
+  &:hover {
+    transform: translateY(-3px); /* Adds slight upward movement */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Adds shadow effect */
+    border-color: #b89561; /* Subtle border color change */
   }
 `;
 
