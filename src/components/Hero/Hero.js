@@ -6,6 +6,7 @@ import Telegram from "../../assets/images/telegram-brands-solid.svg";
 import Instagram from "../../assets/images/square-instagram-brands-solid.svg";
 import FaceBook from "../../assets/images/facebook-brands-solid.svg";
 import { AuthContext } from "../../context/AuthContext";
+import { NavLink } from "react-router-dom";
 
 export const Hero = () => {
   const { token } = React.useContext(AuthContext);
@@ -19,7 +20,11 @@ export const Hero = () => {
               Olimpiyadalarga <HeroStrong>Online</HeroStrong> biz <br />
               bilan tayyorlaning
             </HeroTitle>
-            {token ? <></> : <FreeBtn type="button">Bepul boshlash</FreeBtn>}
+            <LogButton>
+              <NavLink to="/login" className="header__loginLink">
+                Bepul Boshlash
+              </NavLink>
+            </LogButton>
           </HeroTitleBox>
           <SocialMedia>
             <a href="https://telegram.com">
@@ -54,6 +59,38 @@ export const Hero = () => {
     </HeroBox>
   );
 };
+
+const LogButton = styled.button`
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #d0b072;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border: 2px solid #d0b072;
+  border-radius: 10px;
+  padding: 10px 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+
+  @media (max-width: 480px) {
+    margin: 0 auto;
+  }
+  & > a {
+    color: white;
+    text-decoration: none;
+  }
+
+  &:hover {
+    transform: scale(1);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: #b59c5a;
+  }
+`;
 
 // Styled Components
 const FreeBtn = styled.button`
@@ -112,7 +149,8 @@ const HeroTitle = styled.h1`
   }
 
   @media (max-width: 480px) {
-    font-size: 35px;
+    font-size: 30px;
+    margin-bottom: 20px;
   }
 `;
 
