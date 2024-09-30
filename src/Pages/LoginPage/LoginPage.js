@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 import Logo from "../../assets/images/oq-fon-uchun.png";
 import Instagram from "../../assets/images/square-instagram-brands-solid.svg";
 import Telegram from "../../assets/images/telegram-brands-solid.svg";
@@ -9,19 +7,7 @@ import FaceBook from "../../assets/images/facebook-brands-solid.svg";
 import "./LoginPage.css";
 
 import { Form } from "../../components/Form/Form";
-
 export const LoginPage = () => {
-  const [loading, setLoading] = useState(true);
-
-  // Имитация загрузки данных (например, с сервера)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // 2 секунды задержки для демонстрации
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <>
       <LoginBox className="login">
@@ -29,73 +15,51 @@ export const LoginPage = () => {
           <LoginRightBox className="login__right">
             <LoginTitleBox className="login__titleBox">
               <LoginInnerBox className="login__innerBox">
-                {loading ? (
-                  <Skeleton height={48} width={300} />
-                ) : (
-                  <LoginTitle className="login__title">
-                    Welcome to <LogoStrong>Asos Academy</LogoStrong>
-                  </LoginTitle>
-                )}
+                <LoginTitle className="login__title">
+                  Welcome to <LogoStrong>Asos Academy</LogoStrong>
+                </LoginTitle>
               </LoginInnerBox>
             </LoginTitleBox>
             <LoginRightInnerBox className="login__rightInner">
-              {loading ? (
-                <Skeleton height={300} width={300} />
-              ) : (
-                <Form className="login__form" />
-              )}
+              <Form className="login__form" />
             </LoginRightInnerBox>
             <SocialMedia className="login__socialMedia">
-              {loading ? (
-                <>
-                  <Skeleton circle={true} height={30} width={30} />
-                  <Skeleton circle={true} height={30} width={30} />
-                  <Skeleton circle={true} height={30} width={30} />
-                </>
-              ) : (
-                <>
-                  <a href="https://telegram.com" className="login__link">
-                    <SocialLogos
-                      src={Telegram}
-                      width={30}
-                      height={30}
-                      alt="Logo of the site"
-                      className="login__link__image"
-                    />
-                  </a>
-                  <a href="https://instagram.com" className="login__link">
-                    <SocialLogos
-                      src={Instagram}
-                      width={30}
-                      height={30}
-                      alt="Logo of the site"
-                      className="login__link__image"
-                    />
-                  </a>
-                  <a href="https://facebook.com" className="login__link">
-                    <SocialLogos
-                      src={FaceBook}
-                      width={30}
-                      height={30}
-                      alt="Logo of the site"
-                      className="login__link__image"
-                    />
-                  </a>
-                </>
-              )}
+              <a href="https://telegram.com" className="login__link">
+                <SocialLogos
+                  src={Telegram}
+                  width={30}
+                  height={30}
+                  alt="Logo of the site"
+                  className="login__link__image"
+                />
+              </a>
+              <a href="https://instagram.com" className="login__link">
+                <SocialLogos
+                  src={Instagram}
+                  width={30}
+                  height={30}
+                  alt="Logo of the site"
+                  className="login__link__image"
+                />
+              </a>
+              <a href="https://facebook.com" className="login__link">
+                <SocialLogos
+                  src={FaceBook}
+                  width={30}
+                  height={30}
+                  alt="Logo of the site"
+                  className="login__link__image"
+                />
+              </a>
             </SocialMedia>
           </LoginRightBox>
           <LoginLeftBox className="login__left">
-            {loading ? (
-              <Skeleton height={595} width={650} />
-            ) : (
-              <LoginImage
-                className="login__image"
-                src={Logo}
-                height={595}
-                alt="Logo of the site"
-              />
-            )}
+            <LoginImage
+              className="login__image"
+              src={Logo}
+              height={595}
+              alt="Logo of the site"
+            />
           </LoginLeftBox>
         </LoginNextBox>
       </LoginBox>

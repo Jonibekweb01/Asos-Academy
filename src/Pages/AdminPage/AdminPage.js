@@ -42,7 +42,7 @@ export const AdminPage = () => {
 
     axios
       .post(
-        "http://45.130.148.72:4000/users",
+        "https://api.asosakademiya.uz/users",
         {
           first_name: name,
           last_name: lastName,
@@ -82,7 +82,7 @@ export const AdminPage = () => {
 
     useEffect(() => {
       axios
-        .get("http://45.130.148.72:4000/users?page[limit]=1000", {
+        .get("https://api.asosakademiya.uz/users?page[limit]=1000", {
           headers: {
             Authorization: `Bearer ${token.token}`,
           },
@@ -248,7 +248,7 @@ export const AdminPage = () => {
 
     useEffect(() => {
       axios
-        .get("http://45.130.148.72:4000/users?page[limit]=1000", {
+        .get("https://api.asosakademiya.uz/users?page[limit]=1000", {
           headers: {
             Authorization: `Bearer ${token.token}`,
           },

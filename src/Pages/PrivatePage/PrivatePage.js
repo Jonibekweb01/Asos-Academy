@@ -91,7 +91,7 @@ export const PrivatePage = () => {
                   Login
                 </NavLink>
                 <LoginImg
-                  src={ImgLogin}
+                  src={ImgLogin}  
                   alt="Login Icon"
                   width={25}
                   height={25}

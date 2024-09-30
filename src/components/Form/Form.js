@@ -30,7 +30,7 @@ export const Form = () => {
     }
 
     axios
-      .post("http://45.130.148.72:4000/auth/login", {
+      .post("https://api.asosakademiya.uz/auth/login", {
         mobil_phone: phone,
         password: password,
         // first_name: name,
