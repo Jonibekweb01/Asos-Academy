@@ -24,6 +24,12 @@ a {
     margin: 0 auto !important;
 }
 
+@media only screen and (max-width:458px) {
+    .containers {
+        padding: 0;
+    }
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -68,10 +74,9 @@ html {
     }
 }
 
-.MuiPaper-root  {
+.MuiPaper-root {
     height: 40px;
-      position: absolute;
-      right: 20px;
-      bottom: 20px;
-    }
-    
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
