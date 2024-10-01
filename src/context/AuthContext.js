@@ -14,14 +14,13 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem("token");
     }
   }, [token]);
-
   useEffect(() => {
     if (token) {
       localStorage.setItem("role", JSON.stringify(token.data.role));
     } else {
       localStorage.removeItem("role");
     }
-  }, [token]);
+  }, [token, role]);
 
   return (
     <AuthContext.Provider value={{ token, setToken, role, setRole }}>

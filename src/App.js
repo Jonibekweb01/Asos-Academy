@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 import { PrivatePage } from "./Pages/PrivatePage/PrivatePage";
@@ -8,8 +8,8 @@ import { AdminPage } from "./Pages/AdminPage/AdminPage";
 
 function App() {
   const { token, role } = React.useContext(AuthContext);
+
   useEffect(() => {
-    console.log(token);
     console.log(role);
   }, [token, role]);
   return (
@@ -18,7 +18,7 @@ function App() {
         path="/"
         element={
           token ? (
-            role === "admin" ? (
+            token.data.role === "admin" ? (
               <AdminPage />
             ) : (
               <PrivatePage />

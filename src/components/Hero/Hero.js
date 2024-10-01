@@ -5,11 +5,10 @@ import BackImg from "../../assets/images/pic.png";
 import Telegram from "../../assets/images/telegram-brands-solid.svg";
 import Instagram from "../../assets/images/square-instagram-brands-solid.svg";
 import FaceBook from "../../assets/images/facebook-brands-solid.svg";
-import { AuthContext } from "../../context/AuthContext";
+
 import { NavLink } from "react-router-dom";
 
 export const Hero = () => {
-  const { token } = React.useContext(AuthContext);
   return (
     <HeroBox>
       <div className="container">
@@ -92,29 +91,6 @@ const LogButton = styled.button`
   }
 `;
 
-// Styled Components
-const FreeBtn = styled.button`
-  padding: 15px 20px;
-  font-size: 16px;
-  color: white;
-  border: none;
-  font-weight: bold;
-  margin-top: 20px;
-  background-color: #d0b072;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-    padding: 20px 25px;
-  }
-
-  &:hover {
-    transform: translateY(-2px); /* Slight upward movement on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Soft shadow effect */
-  }
-`;
 
 const HeroBox = styled.section`
   background-image: url(${Back});
