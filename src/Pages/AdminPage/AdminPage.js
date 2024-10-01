@@ -5,7 +5,7 @@ import axios from "axios";
 import Logo from "../../assets/images/oq-fon-uchun-min.png";
 import { AuthContext } from "../../context/AuthContext";
 import ImgLogin from "../../assets/images/login_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg";
-import { IoPersonAdd, IoPersonAddOutline } from "react-icons/io5";
+import { IoPersonAdd } from "react-icons/io5";
 import { PiStudentFill } from "react-icons/pi";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { FaChalkboardTeacher } from "react-icons/fa";
@@ -784,7 +784,7 @@ const CategoryContent = styled.div`
 
   h2 {
     margin-bottom: 10px;
-    font-size: 24px; /* Base font size for h2 */
+    font-size: 24px;
   }
 
   p {
