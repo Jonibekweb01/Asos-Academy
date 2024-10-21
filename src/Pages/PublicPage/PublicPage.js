@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton"; // импортируем библиотеку
 import "react-loading-skeleton/dist/skeleton.css"; // добавляем стили
-import Logo from "../../assets/images/oq-fon-uchun-min.png";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 import ImgLogin from "../../assets/images/login_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg";
-import { Hero } from "../../components/Hero/Hero";
+import Logo from "../../assets/images/oq-fon-uchun-min.png";
 import { Courses } from "../../components/Courses/Courses";
-import { Video } from "../../components/Video/Video";
 import { Footer } from "../../components/Footer/Footer";
+import { Hero } from "../../components/Hero/Hero";
 import "./PublicPage.css";
 
 export const PublicPage = () => {
