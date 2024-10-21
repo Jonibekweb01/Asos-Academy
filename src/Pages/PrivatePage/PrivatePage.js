@@ -5,7 +5,6 @@ import Logo from "../../assets/images/oq-fon-uchun-min.png";
 import ImgLogin from "../../assets/images/login_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg";
 import { Hero } from "../../components/Hero/Hero";
 import { AuthContext } from "../../context/AuthContext";
-import { OfficialVideo } from "../../components/OfficialVideo/OfficialVideo";
 
 export const PrivatePage = () => {
   const { token, setToken } = useContext(AuthContext);
@@ -102,7 +101,6 @@ export const PrivatePage = () => {
         </div>
       </Header>
       {/* <Hero /> */}
-      <OfficialVideo ref={officialVideoRef} id="videos" />
     </>
   );
 };
