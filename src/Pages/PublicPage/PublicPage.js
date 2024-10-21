@@ -17,7 +17,7 @@ export const PublicPage = () => {
     // Имитация загрузки данных
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 500); // 2 секунды ожидания
+    }, 500d); // 2 секунды ожидания
 
     return () => clearTimeout(timer);
   }, []);
