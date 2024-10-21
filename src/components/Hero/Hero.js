@@ -25,7 +25,7 @@ export const Hero = () => {
             </LogButton>
           </HeroTitleBox>
           <SocialMedia>
-            <a href="https://telegram.com">
+            <a href="https://t.me/AsosAkademiya">
               <SocialLogos
                 src={Telegram}
                 width={30}
@@ -33,7 +33,7 @@ export const Hero = () => {
                 alt="Telegram Logo"
               />
             </a>
-            <a href="https://instagram.com">
+            <a href="https://www.instagram.com/asosakademiya">
               <SocialLogos
                 src={Instagram}
                 width={30}
@@ -41,7 +41,7 @@ export const Hero = () => {
                 alt="Instagram Logo"
               />
             </a>
-            <a href="https://facebook.com">
+            <a href="https://www.facebook.com/asosakademiya">
               <SocialLogos
                 src={FaceBook}
                 width={30}
