@@ -16,11 +16,10 @@ export const Hero = () => {
           <HeroTitleBox>
             <HeroTitle>
               <HeroStrong>Asos Academy</HeroStrong> <br />
-              Olimpiyadalarga <HeroStrong>Online</HeroStrong> biz <br />
-              bilan tayyorlaning
+              Ilm - cheksizlik sari yo'l
             </HeroTitle>
             <LogButton>
-              <NavLink to="/login" className="header__loginLink">
+              <NavLink  to="/login" className="header__loginLink">
                 Bepul Boshlash
               </NavLink>
             </LogButton>

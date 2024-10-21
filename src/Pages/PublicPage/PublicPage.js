@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Skeleton from "react-loading-skeleton"; // импортируем библиотеку
 import "react-loading-skeleton/dist/skeleton.css"; // добавляем стили
@@ -69,9 +69,9 @@ export const PublicPage = () => {
             ) : (
               <>
                 <LogButton>
-                  <NavLink to="/login" className="header__loginLink">
+                  <a target="_blank" href="https://go.asosakademiya.uz/auth/boxed-signin" className="header__loginLink">
                     Login
-                  </NavLink>
+                  </a>
                   <LoginImg
                     src={ImgLogin}
                     alt="Login Icon"
@@ -97,11 +97,7 @@ export const PublicPage = () => {
         <Courses id="about" />
       )}
 
-      {loading ? (
-        <Skeleton height={400} /> // скелет для Video
-      ) : (
-        <Video />
-      )}
+     
 
       {loading ? (
         <Skeleton height={200} /> // скелет для Footer

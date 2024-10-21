@@ -6,6 +6,9 @@ export const Footer = React.forwardRef(({ id }, ref) => {
     <Footers ref={ref} id={id}>
       <div className="container">
         <FooterInner>
+        <a href="tel:+998200073389" style={{cursor: 'pointer' , color:'white'}}>
+       +998 20 007 33 89
+            </a>
           <FooterContent>
             <p>
               &copy; {new Date().getFullYear()} Asos Academy. All rights

@@ -9,13 +9,9 @@ export const Courses = ({ id }) => {
       <div className="container">
         <CourseInner className="course__inner">
           <div className="course__box">
-            <CourseTitle className="course__title">Online</CourseTitle>
+            <CourseTitle className="course__title">Nima uchun Asos Akademiyasi?</CourseTitle>
             <CourseText className="course__text">
-              Ushbu ta'lim shakli sizga ko'plab imkoniyat va qulayliklarni
-              taqdim etadi. Lokatsiyaning o'zingizga qulay bo'lishi, kuning
-              istalgan qismida masofaviy ta'lim olish imkoniyati, ortiqcha
-              moddiy chiqimlarsiz masofaviy tarzda bilim olish bu-albatta, hamma
-              uchun birdek manzur bo'ladi.
+              Uzoq yillardan beri Matematika va turli fanlar bo’yicha o’zbekistonlik uzoq yillik xalqaro olimpiada g’oliblari va ustozlaridan haqiqiy ilmlarni olish endi biz bilan juda qulay, o’zingizga kerakli fanni tanlang va biz bilan bog’laning
             </CourseText>
           </div>
         </CourseInner>
@@ -26,8 +22,8 @@ export const Courses = ({ id }) => {
 
 const Course = styled.section`
   z-index: 124 !important;
-  padding: 50px 0 0 0;
-
+  padding: 50px 0 50px 0;
+   
   @media (max-width: 480px) {
     padding: 0;
   }
