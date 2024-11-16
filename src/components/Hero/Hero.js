@@ -6,22 +6,22 @@ import Telegram from "../../assets/images/telegram-brands-solid.svg";
 import Instagram from "../../assets/images/square-instagram-brands-solid.svg";
 import FaceBook from "../../assets/images/facebook-brands-solid.svg";
 
-import { NavLink } from "react-router-dom";
+
 
 export const Hero = () => {
   return (
     <HeroBox>
       <div className="container">
         <HeroInner>
-          <HeroTitleBox>
+          <HeroTitleBox  style={{display:"flex " , flexDirection :"column" , alignItems :"start" , justifyContent :"space-between" , height :'100%'}}>
             <HeroTitle>
               <HeroStrong>Asos Academy</HeroStrong> <br />
               Ilm - cheksizlik sari yo'l
             </HeroTitle>
-            <LogButton>
-              <NavLink  to="/login" className="header__loginLink">
+            <LogButton style={{margin : '20px 0'}}>
+              <a  target="_blank"  href="https://go.asosakademiya.uz/auth/boxed-signin" >
                 Bepul Boshlash
-              </NavLink>
+              </a>
             </LogButton>
           </HeroTitleBox>
           <SocialMedia>
@@ -125,7 +125,7 @@ const HeroTitle = styled.h1`
 
   @media (max-width: 480px) {
     font-size: 30px;
-    margin-bottom: 20px;
+   
   }
 `;
 
