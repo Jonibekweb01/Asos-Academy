@@ -7,25 +7,13 @@ import { LoginPage } from "./Pages/LoginPage/LoginPage";
 import { AdminPage } from "./Pages/AdminPage/AdminPage";
 
 function App() {
-  const { token, role } = React.useContext(AuthContext);
 
-  useEffect(() => {
-    console.log(role);
-  }, [token, role]);
   return (
     <Routes>
       <Route
         path="/"
         element={
-          token ? (
-            token.data.role === "admin" ? (
-              <AdminPage />
-            ) : (
-              <PrivatePage />
-            )
-          ) : (
-            <PublicPage />
-          )
+          <PublicPage />
         }
       />
       <Route path="/login" element={<LoginPage />} />
